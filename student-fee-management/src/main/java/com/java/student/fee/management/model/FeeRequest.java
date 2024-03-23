@@ -33,7 +33,7 @@ public class FeeRequest implements Serializable{
 	private List<FeesType> feetypeList;
 	
 	@Schema(name = "Card number")
-	@Size(min=16,message=ErrorCode.INVALID_CARD_SIZE)
+	@Size(min=16, max=16,message=ErrorCode.INVALID_CARD_SIZE)
 	@NotNull(message = ErrorCode.EMPTY_CARD_NUMBER)
 	@JsonDeserialize(using = CardNumberDeserializer.class) 
 	private String cardNo;
