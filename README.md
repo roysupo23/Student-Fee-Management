@@ -1,3 +1,6 @@
+OpenAPI URL = http://localhost:8089/api-docs
+Swagger URL = http://localhost:8089/swagger-ui/index.html#/
+
 The project is created as a part of the task provided by interviewer. The details and requirements of the project are present in the pdf file inside resource folder.
 
 As per the requirement the project should perform 3 operations which are:
