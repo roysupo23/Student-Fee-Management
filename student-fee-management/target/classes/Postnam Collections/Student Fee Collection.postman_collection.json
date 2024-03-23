@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "04c4f91a-b011-46d0-857b-bd9b2f383e6d",
+		"name": "Student Fee Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30459173"
+	},
+	"item": [
+		{
+			"name": "Add Student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Sharaf Aboobacker\",\r\n    \"grade\": \"3\",\r\n    \"mobileNumber\": \"+971 501234567\",\r\n    \"schoolName\": \"Skipy School of Excellence - Integrate model\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8089/student/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"student",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fee Collect",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentId\": 1,\r\n    \"studentName\": \"Sharaf Aboobacker\",\r\n    \"payee\": \"Sharafudeen Aboobacker\",\r\n    \"cardNo\": \"4321567812346789\",\r\n    \"cardType\": \"VISA\",\r\n    \"feetypeList\": [\r\n        {\r\n            \"category\": \"tution fees\",\r\n            \"count\": 1,\r\n            \"amount\": 10000.00,\r\n            \"currency\": \"AED\"\r\n        },\r\n        {\r\n            \"category\": \"sport fees\",\r\n            \"count\": 1,\r\n            \"amount\": 2000.00,\r\n            \"currency\": \"AED\"\r\n        },\r\n        {\r\n            \"category\": \"development fees\",\r\n            \"count\": 1,\r\n            \"amount\": 500.00,\r\n            \"currency\": \"AED\"\r\n        }\r\n    ]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8089/fee/collect",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"fee",
+						"collect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fee Receipt Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/fee/data/receipt/3a018d48-7bd2-4bc1-b45e-1da4d3567741",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"fee",
+						"data",
+						"receipt",
+						"3a018d48-7bd2-4bc1-b45e-1da4d3567741"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fee Receipt PDF",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "file:///C:/Users/SupratimC/Downloads/pdf_7febe80c-5765-4d94-a959-ea1d264f8eea.pdf",
+					"protocol": "file",
+					"path": [
+						"C:",
+						"Users",
+						"SupratimC",
+						"Downloads",
+						"pdf_7febe80c-5765-4d94-a959-ea1d264f8eea.pdf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Student Mandatory Validation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    // \"name\": \"Sharaf Aboobacker\",\r\n    \"grade\": \"3\",\r\n    \"mobileNumber\": \"+971 501234567\",\r\n    \"schoolName\": \"Skipy School of Excellence - Integrate model\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8089/student/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"student",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Student Invalid Phone Number validation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Sharaf Aboobacker\",\r\n    \"grade\": \"3\",\r\n    \"mobileNumber\": \"+971 501234567?\",\r\n    \"schoolName\": \"Skipy School of Excellence - Integrate model\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8089/student/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"student",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fee Collect Mandatory Validation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentId\": 1,\r\n    // \"studentName\": \"Sharaf Aboobacker\",\r\n    \"payee\": \"Sharafudeen Aboobacker\",\r\n    \"cardNo\": \"4321567812346789\",\r\n    \"cardType\": \"VISA\",\r\n    \"feetypeList\": [\r\n        {\r\n            \"category\": \"tution fees\",\r\n            \"count\": 1,\r\n            \"amount\": 10000.00,\r\n            \"currency\": \"AED\"\r\n        },\r\n        {\r\n            \"category\": \"sport fees\",\r\n            \"count\": 1,\r\n            \"amount\": 2000.00,\r\n            \"currency\": \"AED\"\r\n        },\r\n        {\r\n            \"category\": \"development fees\",\r\n            \"count\": 1,\r\n            \"amount\": 500.00,\r\n            \"currency\": \"AED\"\r\n        }\r\n    ]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8089/fee/collect",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"fee",
+						"collect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fee Collect Card Number Validation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentId\": 1,\r\n    \"studentName\": \"Sharaf Aboobacker\",\r\n    \"payee\": \"Sharafudeen Aboobacker\",\r\n    \"cardNo\": \"4321567812346789?\",\r\n    \"cardType\": \"VISA\",\r\n    \"feetypeList\": [\r\n        {\r\n            \"category\": \"tution fees\",\r\n            \"count\": 1,\r\n            \"amount\": 10000.00,\r\n            \"currency\": \"AED\"\r\n        },\r\n        {\r\n            \"category\": \"sport fees\",\r\n            \"count\": 1,\r\n            \"amount\": 2000.00,\r\n            \"currency\": \"AED\"\r\n        },\r\n        {\r\n            \"category\": \"development fees\",\r\n            \"count\": 1,\r\n            \"amount\": 500.00,\r\n            \"currency\": \"AED\"\r\n        }\r\n    ]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8089/fee/collect",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"fee",
+						"collect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student Not Available Validation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentId\": 2,\r\n    \"studentName\": \"Sharaf Aboobacker\",\r\n    \"payee\": \"Sharafudeen Aboobacker\",\r\n    \"cardNo\": \"4321567812346789\",\r\n    \"cardType\": \"VISA\",\r\n    \"feetypeList\": [\r\n        {\r\n            \"category\": \"tution fees\",\r\n            \"count\": 1,\r\n            \"amount\": 10000.00,\r\n            \"currency\": \"AED\"\r\n        },\r\n        {\r\n            \"category\": \"sport fees\",\r\n            \"count\": 1,\r\n            \"amount\": 2000.00,\r\n            \"currency\": \"AED\"\r\n        },\r\n        {\r\n            \"category\": \"development fees\",\r\n            \"count\": 1,\r\n            \"amount\": 500.00,\r\n            \"currency\": \"AED\"\r\n        }\r\n    ]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8089/fee/collect",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"fee",
+						"collect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student ID and Name Does Not Match Validation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentId\": 1,\r\n    \"studentName\": \" Aboobacker\",\r\n    \"payee\": \"Sharafudeen Aboobacker\",\r\n    \"cardNo\": \"4321567812346789\",\r\n    \"cardType\": \"VISA\",\r\n    \"feetypeList\": [\r\n        {\r\n            \"category\": \"tution fees\",\r\n            \"count\": 1,\r\n            \"amount\": 10000.00,\r\n            \"currency\": \"AED\"\r\n        },\r\n        {\r\n            \"category\": \"sport fees\",\r\n            \"count\": 1,\r\n            \"amount\": 2000.00,\r\n            \"currency\": \"AED\"\r\n        },\r\n        {\r\n            \"category\": \"development fees\",\r\n            \"count\": 1,\r\n            \"amount\": 500.00,\r\n            \"currency\": \"AED\"\r\n        }\r\n    ]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8089/fee/collect",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"fee",
+						"collect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Fee Receipt",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/fee/data/receipt/6da499bd-9e86-4f0a-b0c1-9c27caf1e4bf",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"fee",
+						"data",
+						"receipt",
+						"6da499bd-9e86-4f0a-b0c1-9c27caf1e4bf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "No Details Found Validation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/fee/data/receipt/6da499bd-9e86-4f0a-b0c1-9c27caf1e4b",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"fee",
+						"data",
+						"receipt",
+						"6da499bd-9e86-4f0a-b0c1-9c27caf1e4b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
