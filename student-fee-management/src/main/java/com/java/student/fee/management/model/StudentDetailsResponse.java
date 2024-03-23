@@ -2,15 +2,28 @@ package com.java.student.fee.management.model;
 
 import java.io.Serializable;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 public class StudentDetailsResponse implements Serializable{
 
 	private static final long serialVersionUID = 4111040912186819746L;
 	
+	@Schema(name = "Student ID")
 	private Long id;
+	
+	@Schema(name = "Student name")
 	private String name;
+	
+	@Schema(name = "Grade of the student")
 	private String grade;
+	
+	@Schema(name = "Parent mobile number")
 	private String mobileNumber;
+	
+	@Schema(name = "School name")
 	private String schoolName;
+	
+	@Schema(name = "Student name")
 	private String message;
 	
 	

@@ -11,11 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.java.student.fee.management.exception.DuplicateFieldException;
+import com.java.student.fee.management.model.ExceptionHandleRest;
 import com.java.student.fee.management.model.StudentDetailsRequest;
 import com.java.student.fee.management.model.StudentDetailsResponse;
 import com.java.student.fee.management.service.StudentDetailsService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
@@ -28,11 +32,26 @@ public class StudentDetailsController {
 
 	@Autowired
 	StudentDetailsService studentService;
-
+	
 	@Operation(
-			summary = "Onboarding student of a school",
-			description = "Onboard students from different school for the purpose of collecting fees deposited by any payee")
-	@PostMapping("/add")
+	        summary = "Onboarding student of a school",
+	        description = "Onboard students from different school for the purpose of collecting fees deposited by any payee.",
+	        tags = { "Onboard Student" },
+	        responses = {
+	            @ApiResponse(
+	                description = "Success",
+	                responseCode = "200",
+	                content = @Content(mediaType = "application/json", schema = @Schema(implementation = StudentDetailsResponse.class))
+	            ),
+	            @ApiResponse(
+	            	description = "Duplicate mobile number", 
+	            	responseCode = "400", 
+	            	content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionHandleRest.class))
+	            )	,
+	            @ApiResponse(description = "Internal error", responseCode = "500", content = @Content)
+	        }
+	    )
+	@PostMapping(value = "/add", produces = "application/json", consumes = "application/json")
 	public ResponseEntity<StudentDetailsResponse> addStudentDetails(@RequestBody @Valid StudentDetailsRequest request)
 			throws DuplicateFieldException {
 

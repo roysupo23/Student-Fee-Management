@@ -3,13 +3,22 @@ package com.java.student.fee.management.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 public class FeesType implements Serializable {
 
 	private static final long serialVersionUID = 1007239213935397244L;
 	
+	@Schema(name = "Category of the fees")
 	private String category;
+	
+	@Schema(name = "Count of month of the fees")
 	private Integer count;
+	
+	@Schema(name = "Fees amount")
 	private Double amount;
+	
+	@Schema(name = "Currenct of the amount")
 	private String currency;
 	
 	public String getCategory() {

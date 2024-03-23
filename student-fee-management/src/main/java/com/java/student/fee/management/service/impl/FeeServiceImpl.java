@@ -131,7 +131,6 @@ public class FeeServiceImpl implements FeeService {
 		document.open();
 
 		Image img = Image.getInstance(ResourceUtils.getURL("src\\main\\resources\\photo\\skiplysmall.jpg"));
-//		img.setAbsolutePosition(20f, 10f);
 		document.add(img);
 
 		Font fontTiltle = FontFactory.getFont(FontFactory.TIMES_ROMAN);
@@ -170,7 +169,6 @@ public class FeeServiceImpl implements FeeService {
 		document.add(paragraph4);
 		
 		img = Image.getInstance(ResourceUtils.getURL("src\\main\\resources\\photo\\skiplybig.jpg"));
-//		img.setAbsolutePosition(20f, 10f);
 		document.add(img);
 		
 		sb = new StringBuilder();

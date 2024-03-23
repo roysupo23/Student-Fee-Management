@@ -7,15 +7,28 @@ import java.util.Objects;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.java.student.fee.management.mapper.DateDeserializer;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 public class FeeResponse implements Serializable {
 
 	private static final long serialVersionUID = 1270392053172138355L;
 
+	@Schema(name = "Student ID")
 	private Long studentId;
+	
+	@Schema(name = "Student name")
 	private String studentName;
+	
+	@Schema(name = "Payee name")
 	private String payee;
+	
+	@Schema(name = "Card number")
 	private String cardNo;
+	
+	@Schema(description = "Card type")
 	private String cardType;
+	
+	@Schema(description = "Reference number")
 	private String referenceNo;
 	
 	@JsonDeserialize(using = DateDeserializer.class) 

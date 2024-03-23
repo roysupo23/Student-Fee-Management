@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.java.student.fee.management.common.ErrorCode;
 import com.java.student.fee.management.mapper.CardNumberDeserializer;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -15,23 +16,29 @@ public class FeeRequest implements Serializable{
 
 	private static final long serialVersionUID = 5993435158623329543L;
 	
+	@Schema(name = "Student ID")
 	@NotNull(message = ErrorCode.EMPTY_STUDENT_ID)
 	private Long studentId;
 	
+	@Schema(name = "Student name")
 	@NotNull(message = ErrorCode.EMPTY_NAME)
 	private String studentName;
 	
+	@Schema(name = "Payee name")
 	@NotNull(message = ErrorCode.EMPTY_PAYEE)
 	private String payee;
 	
+	@Schema(name = "Multiple fee type")
 	@NotNull(message = ErrorCode.EMPTY_FEE_TYPE)
 	private List<FeesType> feetypeList;
 	
+	@Schema(name = "Card number")
 	@Size(min=16,message=ErrorCode.INVALID_CARD_SIZE)
 	@NotNull(message = ErrorCode.EMPTY_CARD_NUMBER)
 	@JsonDeserialize(using = CardNumberDeserializer.class) 
 	private String cardNo;
 	
+	@Schema(name = "Card type")
 	@NotNull(message = ErrorCode.EMPTY_NAME)
 	private String cardType;
 	

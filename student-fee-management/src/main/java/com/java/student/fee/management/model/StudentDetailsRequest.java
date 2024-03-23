@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.java.student.fee.management.common.ErrorCode;
 import com.java.student.fee.management.mapper.MobileNumberDeserializer;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 
 
@@ -19,20 +20,25 @@ import jakarta.validation.constraints.NotNull;
  * 
  */
 
+@Schema
 public class StudentDetailsRequest implements Serializable {
 
 	private static final long serialVersionUID = -4890279193599522835L;
 	
+	@Schema(name = "Student name")
 	@NotNull(message = ErrorCode.EMPTY_NAME)
 	private String name;
 	
+	@Schema(name = "Grade of the student")
 	@NotNull(message = ErrorCode.EMPTY_GRADE)
 	private String grade;
 	
+	@Schema(name = "Parent mobile number")
 	@NotNull(message = ErrorCode.EMPTY_MOBILE_NUMBER)
 	@JsonDeserialize(using = MobileNumberDeserializer.class) 
 	private String mobileNumber;
 	
+	@Schema(name = "School name")
 	@NotNull(message = ErrorCode.EMPTY_SCHOOL_NAME)
 	private String schoolName;
 	
