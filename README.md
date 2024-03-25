@@ -1,5 +1,8 @@
 OpenAPI URL = http://localhost:8089/api-docs
+
 Swagger URL = http://localhost:8089/swagger-ui/index.html#/
+
+POSTMAN Collection path = student-fee-management/src/main/resources/Postnam Collections/Student Fee Collection.postman_collection.json
 
 The project is created as a part of the task provided by interviewer. The details and requirements of the project are present in the pdf file inside resource folder.
 
