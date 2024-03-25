@@ -1,2 +1,7 @@
 */target/*
 /target/
+pdf_*
+*.log
+.project
+.settings
+.classpath
